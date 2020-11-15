@@ -17,9 +17,10 @@ I2C_SLAVE3_ADDRESS = 13
 
 
 def ConvertStringsToBytes(src):
-    converted = []
-    for b in src:
-        converted.append(ord(b))
+    # converted = []
+    # for b in src:
+    #     converted.append(ord(b))
+    converted = bytes(src, 'utf-8')
     return converted
 
 
@@ -30,11 +31,11 @@ def main(args):
         slaveSelect = input("Which Arduino (1-3): ")
         cmd = input("Enter command: ")
 
-        if slaveSelect == "1":
+        if slaveSelect == 1:
             slaveAddress = I2C_SLAVE_ADDRESS
-        elif slaveSelect == "2":
+        elif slaveSelect == 2:
             slaveAddress = I2C_SLAVE2_ADDRESS
-        elif slaveSelect == "3":
+        elif slaveSelect == 3:
             slaveAddress = I2C_SLAVE3_ADDRESS
         else:
             # quit if you messed up
@@ -53,9 +54,10 @@ def main(args):
                 data = I2Cbus.read_i2c_block_data(slaveAddress, 0x00, 16)
                 print("recieve from slave:")
                 print(data)
+                time.sleep(1)
             except:
                 print("remote i/o error")
-                time.sleep(0.5)
+                time.sleep(1)
     return 0
 
 

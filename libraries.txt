@@ -1,0 +1,8 @@
+raspi libraries:
+	w1thermsensor (for thermal sensor)
+	smbus2 (for i2c)
+	git (code versioning)
+	virtualenv (virtual environment)
+
+sources: 
+https://www.aranacorp.com/en/communication-between-raspberry-pi-and-arduino-with-i2c/
