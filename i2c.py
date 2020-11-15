@@ -28,7 +28,7 @@ def main(args):
     I2Cbus = smbus.SMBus(1)
     with smbus.SMBus(1) as I2Cbus:
         slaveSelect = input("Which Arduino (1-3): ")
-        cmd = str(input("Enter command: "))
+        cmd = input("Enter command: ")
 
         if slaveSelect == "1":
             slaveAddress = I2C_SLAVE_ADDRESS
