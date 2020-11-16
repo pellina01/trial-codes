@@ -21,6 +21,6 @@ while True:
     byte = ConvertStringsToBytes(string)
     if string == "1":
         response = I2Cbus.read_i2c_block_data(I2C_SLAVE_ADDRESS, 0x00, 2)
-        print(response.decode('utf-8'))
+        print(''.join(response).decode('utf-8'))
     else:
         I2Cbus.write_i2c_block_data(I2C_SLAVE_ADDRESS, 0x00, byte)
