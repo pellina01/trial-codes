@@ -19,7 +19,7 @@ def ConvertStringsToBytes(src):
 while True:
     string = raw_input("enter command")
     byte = ConvertStringsToBytes(string)
-    if string == "1":
+    if string == "0":
         response = I2Cbus.read_i2c_block_data(I2C_SLAVE_ADDRESS, 0x00, 2)
         # print(''.join(response).decode('utf-8'))
         print(bytearray(response).decode("utf-8"))
