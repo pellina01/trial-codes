@@ -19,4 +19,7 @@ def ConvertStringsToBytes(src):
 while True:
     string = raw_input("enter command")
     byte = ConvertStringsToBytes(string)
-    I2Cbus.write_i2c_block_data(I2C_SLAVE_ADDRESS, 0x00, byte)
+    if string == "1":
+        I2Cbus.read_i2c_block_data(I2C_SLAVE_ADDRESS, 0x00, 2)
+    else:
+        I2Cbus.write_i2c_block_data(I2C_SLAVE_ADDRESS, 0x00, byte)
