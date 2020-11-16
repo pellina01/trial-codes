@@ -20,8 +20,11 @@ def ConvertStringsToBytes(src):
     # converted = []
     # for b in src:
     #     converted.append(ord(b))
-    converted = bytes(src, 'utf-8')
-    return converted
+    converted = bytearray(src)
+    convert = []
+    for byte in converted:
+        convert.append(byte)
+    return convert
 
 
 def main(args):
