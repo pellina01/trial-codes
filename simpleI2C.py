@@ -17,7 +17,6 @@ def ConvertStringsToBytes(src):
 
 
 while True:
-    string = input("enter command")
-    stringify = str(string).encode("utf-8")
-    byte = ConvertStringsToBytes(stringify)
+    string = raw_input("enter command")
+    byte = ConvertStringsToBytes(string)
     I2Cbus.write_i2c_block_data(I2C_SLAVE_ADDRESS, 0x00, byte)
