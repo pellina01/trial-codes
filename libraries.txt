@@ -6,3 +6,5 @@ raspi libraries:
 
 sources: 
 https://www.aranacorp.com/en/communication-between-raspberry-pi-and-arduino-with-i2c/
+
+https://installvirtual.com/install-python-3-7-on-raspberry-pi/
