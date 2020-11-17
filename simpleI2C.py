@@ -9,7 +9,7 @@ I2Cbus = smbus.SMBus(1)
 
 
 def ConvertStringsToBytes(src):
-    converted = bytearray(src)
+    converted = bytes(src, "utf-8")
     convert = []
     for byte in converted:
         convert.append(byte)
