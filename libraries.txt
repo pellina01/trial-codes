@@ -3,8 +3,16 @@ raspi libraries:
 	smbus2 (for i2c)
 	git (code versioning)
 	virtualenv (virtual environment)
+	paho.mqtt.client (mqtt)
+
+commands:      
+	i2cdetect -y 1
 
 sources: 
 https://www.aranacorp.com/en/communication-between-raspberry-pi-and-arduino-with-i2c/
 
 https://installvirtual.com/install-python-3-7-on-raspberry-pi/
+
+https://scmquest.com/resolved-importerror-no-module-named-requests-usr-bin-python-no-module-named-pip-on-macos/
+
+https://mntolia.com/mqtt-last-will-testament-explained-with-examples/
