@@ -36,7 +36,7 @@ client.loop_start()
 while True:
     myvar = input("enter message: ")
     client.publish(topic, json.dumps(
-        {"status": "connected", "message": myvar}), retain=False)
+        {"status": "sending", "message": myvar}), retain=False)
     time.sleep(2)
 
 
