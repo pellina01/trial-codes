@@ -6,8 +6,8 @@ import json
 # This is the Publisher
 
 
-topic = "topic/ph"
-url = "ec2-18-206-177-119.compute-1.amazonaws.com"
+topic = "topic/tb"
+url = " "
 
 
 client = mqtt.Client()
@@ -34,9 +34,10 @@ client.loop_start()
 
 
 while True:
+    clock = int(time.time())
     myvar = input("enter message: ")
     client.publish(topic, json.dumps(
-        {"status": "sending", "message": myvar}), retain=False)
+        {"status": "sending", "time": clock, "value": myvar}), retain=False)
     time.sleep(2)
 
 

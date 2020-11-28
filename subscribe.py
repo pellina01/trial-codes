@@ -18,7 +18,7 @@ def on_message(client, userdata, msg):
 
 
 client = mqtt.Client()
-client.connect("ec2-18-206-177-119.compute-1.amazonaws.com", 1883, 60)
+client.connect(" ", 1883, 60)
 
 client.on_connect = on_connect
 client.on_message = on_message

@@ -4,6 +4,7 @@ raspi libraries:
 	git (code versioning)
 	virtualenv (virtual environment)
 	paho.mqtt.client (mqtt)
+	requests
 
 commands:      
 	i2cdetect -y 1
