@@ -4,7 +4,10 @@ raspi libraries:
 	git (code versioning)
 	virtualenv (virtual environment)
 	paho.mqtt.client (mqtt)
-	requests
+	mosquitto(bridged connection to cloud)
+	pika(mq)
+	docker
+	rabbitmq(dockerized)
 
 commands:      
 	i2cdetect -y 1
