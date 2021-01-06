@@ -3,9 +3,9 @@ import time
 import math
 
 topic = 'ph'
-client = InfluxDBClient(host='3.236.214.86', port=8086,
-                        username='fishpond', password='thesis')
-client.switch_database('fishpond')
+client = InfluxDBClient(host='ip', port=8086,
+                        username='user', password='pw')
+client.switch_database('db')
 
 query_result = client.query(
     'SELECT * FROM {} WHERE time > now() - 2d'.format(topic))
@@ -23,7 +23,7 @@ aggregated_data /= n
 print(aggregated_data)
 json_body = [
     {
-        "measurement": "{}__aggregated".format(topic),
+        "measurement": "{}_aggregated".format(topic),
         "tags": {
             "user": topic,
         },
