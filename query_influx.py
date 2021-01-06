@@ -8,7 +8,7 @@ client = InfluxDBClient(host='ip', port=8086,
 client.switch_database('db')
 
 query_result = client.query(
-    'SELECT * FROM {} WHERE time > now() - 2d'.format(topic))
+    'SELECT * FROM {} WHERE time > now() - 1d'.format(topic))
 
 data_points = list(query_result.get_points(measurement=topic))
 
