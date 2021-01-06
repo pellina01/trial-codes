@@ -1,14 +1,37 @@
 from influxdb import InfluxDBClient
+import time
+import math
 
-client = InfluxDBClient(host='ec2.IP', port=8086,
+topic = 'ph'
+client = InfluxDBClient(host='3.236.214.86', port=8086,
                         username='fishpond', password='thesis')
 client.switch_database('fishpond')
 
-res = client.query(
-    'SELECT * FROM ph WHERE time > now() - 4d GROUP BY "unit"')
-points = res.get_points(tags={'unit': 'ph'})
+query_result = client.query(
+    'SELECT * FROM {} WHERE time > now() - 2d'.format(topic))
 
-r = list(res.get_points(measurement='ph'))
+data_points = list(query_result.get_points(measurement=topic))
 
-for lists in r:
-    print(lists["value"])
+aggregated_data = 0
+n = 0
+for lists in data_points:
+    aggregated_data += lists["value"]
+    n += 1
+    print(aggregated_data)
+
+aggregated_data /= n
+print(aggregated_data)
+json_body = [
+    {
+        "measurement": "{}__aggregated".format(topic),
+        "tags": {
+            "user": topic,
+        },
+        "time": math.trunc(time.time())-86400,
+        "fields": {
+            "value": aggregated_data
+        }
+    }]
+
+client.write_points(json_body)
+print('success')
