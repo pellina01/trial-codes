@@ -20,3 +20,6 @@ https://installvirtual.com/install-python-3-7-on-raspberry-pi/
 https://scmquest.com/resolved-importerror-no-module-named-requests-usr-bin-python-no-module-named-pip-on-macos/
 
 https://mntolia.com/mqtt-last-will-testament-explained-with-examples/
+
+ftp 
+https://pimylifeup.com/raspberry-pi-ftp/

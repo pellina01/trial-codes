@@ -3,15 +3,15 @@ import time
 import math
 
 topic = 'ph'
-client = InfluxDBClient(host='ip', port=8086,
-                        username='user', password='pw')
-client.switch_database('db')
+client = InfluxDBClient(host='3.236.214.86', port=8086,
+                        username='fishpond', password='thesis')
+client.switch_database('fishpond')
 
 query_result = client.query(
-    'SELECT * FROM {} WHERE time > now() - 1d'.format(topic))
+    'SELECT * FROM {} WHERE time > now() - 10d'.format(topic))
 
 data_points = list(query_result.get_points(measurement=topic))
-
+print(data_points)
 aggregated_data = 0
 n = 0
 for lists in data_points:
