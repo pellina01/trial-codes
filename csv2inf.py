@@ -21,7 +21,7 @@ with open('tb.csv') as csv_file:
         	d = datetime.strptime(row[0],'%Y-%m-%dT%H:%M:%S.%fZ')
         except:
         	d = datetime.strptime(row[0],'%Y-%m-%dT%H:%M:%SZ')
-        data.append("{measurement},unit={unit} value={value} {timestamp}".format(measurement=measurement_name,unit=row[1],value=float(row[2]),timestamp=int(datetime.timestamp(d)*1000)))
+        data.append("{measurement},unit={unit} value={value} {timestamp}".format(measurement=measurement_name,unit=row[1],value=float(row[2]),timestamp=int(datetime.timestamp(d)*1000000)))
 
     influxdb_client.write_points(data, database='fishpond', time_precision='u',batch_size=line_count, protocol='line')
     print("ok")
